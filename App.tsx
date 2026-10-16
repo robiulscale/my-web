@@ -21,7 +21,6 @@ import {
   X as CloseIcon,
   Music,
   Check,
-  ArrowUp,
   Quote,
   Send,
   MessageCircle,
@@ -1060,26 +1059,26 @@ const App: React.FC = () => {
           </div>
         </div>
       
-      {/* Top iPhone Glass Frosted Menu Bar */}
-      <header className={`fixed top-0 left-0 right-0 z-50 w-full ios-glass-nav transition-all duration-500 ${
-        isDarkMode 
-          ? 'bg-[#0a0c10]/65 border-b border-white/[0.08] shadow-[0_4px_30px_rgba(0,0,0,0.4)]' 
-          : 'bg-white/65 border-b border-black/[0.06] shadow-[0_4px_30px_rgba(0,0,0,0.04)]'
-      }`}>
-        <div className="max-w-7xl mx-auto px-6 md:px-12 h-14 md:h-16 flex items-center justify-between">
+      {/* Top Floating iPhone Glass Rounded Menu Bar */}
+      <header className="fixed top-3 sm:top-4 md:top-5 left-0 right-0 z-50 px-4 sm:px-6 md:px-8 flex justify-center pointer-events-none transition-all duration-500">
+        <div className={`w-full max-w-5xl h-14 md:h-16 px-5 sm:px-7 md:px-8 rounded-2xl md:rounded-full ios-glass-nav border flex items-center justify-between pointer-events-auto transition-all duration-500 ${
+          isDarkMode 
+            ? 'bg-[#0a0c10]/60 border-white/[0.12] shadow-[0_16px_40px_-10px_rgba(0,0,0,0.7),0_0_0_1px_rgba(255,255,255,0.05)]' 
+            : 'bg-white/60 border-white/80 shadow-[0_16px_40px_-10px_rgba(0,0,0,0.08),0_0_0_1px_rgba(0,0,0,0.04)]'
+        }`}>
           
-          {/* Brand Logo (Clean Robiul. without [R] emblem) */}
+          {/* Brand Logo (Clean Robiul.) */}
           <div 
             className="flex items-center cursor-pointer group select-none" 
             onClick={() => scrollToSection('home')}
           >
-            <span className={`text-2xl md:text-3xl font-bold font-playfair tracking-tight transition-transform duration-300 group-hover:scale-105 ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>
+            <span className={`text-xl md:text-2xl font-bold font-playfair tracking-tight transition-transform duration-300 group-hover:scale-105 ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>
               Robiul<span className="primary-text group-hover:animate-pulse">.</span>
             </span>
           </div>
 
           {/* Desktop Horizontal Menu Links with Gallery-like hover animation */}
-          <nav className="hidden md:flex items-center gap-8 lg:gap-10">
+          <nav className="hidden md:flex items-center gap-7 lg:gap-9">
             {[
               { id: 'home', label: t.nav.home },
               { id: 'about', label: t.nav.about },
@@ -1111,8 +1110,8 @@ const App: React.FC = () => {
             })}
           </nav>
 
-          {/* Right Controls (Without Say Hello button) */}
-          <div className="flex items-center gap-2.5 sm:gap-3.5">
+          {/* Right Controls */}
+          <div className="flex items-center gap-2.5 sm:gap-3">
             {/* Audio Toggle Button */}
             <button 
               onClick={toggleAudio}
@@ -1584,13 +1583,7 @@ const App: React.FC = () => {
         </div>
       </footer>
 
-      {/* Floating Scroll Top Button */}
-      <button 
-        onClick={scrollToTop}
-        className={`fixed bottom-6 right-6 w-10 h-10 backdrop-blur-md rounded-full border flex items-center justify-center transition-all z-50 group ${isDarkMode ? 'bg-white/5 border-white/10 text-slate-400 hover:text-white hover:bg-white/10' : 'bg-white border-slate-200 text-slate-400 hover:text-slate-900'}`}
-      >
-        <ArrowUp className="w-4 h-4 group-hover:-translate-y-0.5 transition-transform" />
-      </button>
+
 
       {/* Floating Volume Indicator (if playing) */}
       {isPlaying && (
