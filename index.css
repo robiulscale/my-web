@@ -115,3 +115,25 @@ body {
     z-index: 50 !important;
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
 }
+
+/* iPhone Frosted Glass Navbar */
+.ios-glass-nav {
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+}
+
+/* Gallery-like spring hover animation for menu text */
+.menu-text-animated {
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    transform-style: preserve-3d;
+    display: inline-block;
+    will-change: transform;
+}
+
+.menu-text-animated:hover {
+    transform: scale(1.18) translateY(-2px);
+    font-weight: 800 !important;
+    letter-spacing: 0.04em;
+    filter: drop-shadow(0 4px 12px rgba(16, 185, 129, 0.25));
+}
+

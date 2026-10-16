@@ -851,6 +851,29 @@ const App: React.FC = () => {
     document.documentElement.style.setProperty('--primary-color', activeColor);
   }, [activeColor]);
 
+  // Active Section Tracking on Scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = ['home', 'about', 'gallery', 'contact'];
+      const scrollPosition = window.scrollY + 200;
+
+      for (const sectionId of sections) {
+        const el = document.getElementById(sectionId);
+        if (el) {
+          const top = el.offsetTop;
+          const height = el.offsetHeight;
+          if (scrollPosition >= top && scrollPosition < top + height) {
+            setActiveSection(sectionId);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const toggleTheme = () => setIsDarkMode(!isDarkMode);
 
   const toggleAudio = () => {
@@ -1037,53 +1060,113 @@ const App: React.FC = () => {
           </div>
         </div>
       
-      {/* Navigation Bar */}
-      <nav className="fixed top-0 left-0 right-0 z-50 px-6 md:px-12 py-6 flex items-start justify-between pointer-events-none">
-        <div className="flex items-center gap-2 font-playfair text-2xl font-bold tracking-tight cursor-pointer group pointer-events-auto" onClick={() => scrollToSection('home')}>
-          <span className={isDarkMode ? 'text-white' : 'text-slate-900'}>Robiul<span className="primary-text group-hover:animate-pulse">.</span></span>
-        </div>
-        
-        <div className="flex flex-col gap-4 items-end pointer-events-auto">
-          {/* Menu Control */}
-          <button 
-            onClick={() => setIsMenuOpen(true)}
-            className={`${isDarkMode ? 'text-white' : 'text-slate-900'} hover:scale-110 active:scale-95 transition-all`}
-            title="Menu"
+      {/* Top iPhone Glass Frosted Menu Bar */}
+      <header className={`fixed top-0 left-0 right-0 z-50 w-full ios-glass-nav transition-all duration-500 ${
+        isDarkMode 
+          ? 'bg-[#0a0c10]/65 border-b border-white/[0.08] shadow-[0_4px_30px_rgba(0,0,0,0.4)]' 
+          : 'bg-white/65 border-b border-black/[0.06] shadow-[0_4px_30px_rgba(0,0,0,0.04)]'
+      }`}>
+        <div className="max-w-7xl mx-auto px-6 md:px-12 h-14 md:h-16 flex items-center justify-between">
+          
+          {/* Brand Logo (Clean Robiul. without [R] emblem) */}
+          <div 
+            className="flex items-center cursor-pointer group select-none" 
+            onClick={() => scrollToSection('home')}
           >
-            <MenuIcon size={28} />
-          </button>
+            <span className={`text-2xl md:text-3xl font-bold font-playfair tracking-tight transition-transform duration-300 group-hover:scale-105 ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>
+              Robiul<span className="primary-text group-hover:animate-pulse">.</span>
+            </span>
+          </div>
 
-          {/* Settings Control */}
-          <button 
-            onClick={() => setIsSettingsOpen(true)}
-            className={`w-10 h-10 rounded-full ${isDarkMode ? 'bg-[#1a1d21]/80 border-white/10 text-white' : 'bg-white/80 border-black/10 text-slate-900'} backdrop-blur-md border flex items-center justify-center shadow-xl hover:scale-110 active:scale-95 transition-all group`}
-            title="Settings"
-          >
-            <SettingsIcon size={20} className="group-hover:rotate-90 transition-transform duration-500" />
-          </button>
-
-          {/* Audio Control */}
-          <button 
-            onClick={toggleAudio}
-            className={`w-10 h-10 rounded-full ${isDarkMode ? 'bg-[#1a1d21]/80 border-white/10 text-white' : 'bg-white/80 border-black/10 text-slate-900'} backdrop-blur-md border flex items-center justify-center shadow-xl hover:scale-110 active:scale-95 transition-all group`}
-            title="Toggle Audio"
-          >
-            {isPlaying ? (
-              <div className="flex gap-0.5 items-end h-3">
-                {[0.1, 0.4, 0.2].map((delay, i) => (
-                  <div 
-                    key={i}
-                    className="w-0.5 primary-bg rounded-full animate-sound-wave" 
-                    style={{ animationDelay: `${delay}s`, opacity: 0.8 }}
+          {/* Desktop Horizontal Menu Links with Gallery-like hover animation */}
+          <nav className="hidden md:flex items-center gap-8 lg:gap-10">
+            {[
+              { id: 'home', label: t.nav.home },
+              { id: 'about', label: t.nav.about },
+              { id: 'gallery', label: t.nav.gallery },
+              { id: 'contact', label: t.nav.contact }
+            ].map((item) => {
+              const isActive = activeSection === item.id;
+              return (
+                <button
+                  key={item.id}
+                  onClick={() => scrollToSection(item.id)}
+                  className={`menu-text-animated relative py-2 px-1 text-sm font-semibold tracking-wide cursor-pointer transition-colors duration-200 group flex items-center gap-1 ${
+                    isActive 
+                      ? 'primary-text font-bold' 
+                      : isDarkMode 
+                        ? 'text-white/75 hover:text-white hover:primary-text' 
+                        : 'text-slate-700 hover:text-slate-950 hover:primary-text'
+                  }`}
+                >
+                  <span className="relative z-10">{item.label}</span>
+                  {/* Underline indicator */}
+                  <span 
+                    className={`absolute bottom-0 left-0 right-0 h-0.5 rounded-full primary-bg transition-all duration-300 ${
+                      isActive ? 'w-full opacity-100' : 'w-0 opacity-0 group-hover:w-full group-hover:opacity-80'
+                    }`}
                   />
-                ))}
-              </div>
-            ) : (
-              <Play size={18} className="ml-0.5" />
-            )}
-          </button>
+                </button>
+              );
+            })}
+          </nav>
+
+          {/* Right Controls (Without Say Hello button) */}
+          <div className="flex items-center gap-2.5 sm:gap-3.5">
+            {/* Audio Toggle Button */}
+            <button 
+              onClick={toggleAudio}
+              className={`w-9 h-9 rounded-full flex items-center justify-center transition-all ${
+                isPlaying
+                  ? 'primary-bg text-white shadow-md'
+                  : isDarkMode 
+                    ? 'bg-white/5 border border-white/10 text-white/80 hover:text-white hover:bg-white/10' 
+                    : 'bg-black/5 border border-black/10 text-slate-700 hover:text-slate-900 hover:bg-black/10'
+              }`}
+              title={isPlaying ? "Pause Audio" : "Play Audio"}
+            >
+              {isPlaying ? (
+                <div className="flex gap-0.5 items-end h-3">
+                  {[0.1, 0.4, 0.2].map((delay, i) => (
+                    <div 
+                      key={i}
+                      className="w-0.5 bg-white rounded-full animate-sound-wave" 
+                      style={{ animationDelay: `${delay}s`, opacity: 0.95 }}
+                    />
+                  ))}
+                </div>
+              ) : (
+                <Play size={15} className="ml-0.5" />
+              )}
+            </button>
+
+            {/* Settings Button */}
+            <button 
+              onClick={() => setIsSettingsOpen(true)}
+              className={`w-9 h-9 rounded-full flex items-center justify-center transition-all ${
+                isDarkMode 
+                  ? 'bg-white/5 border border-white/10 text-white/80 hover:text-white hover:bg-white/10' 
+                  : 'bg-black/5 border border-black/10 text-slate-700 hover:text-slate-900 hover:bg-black/10'
+              }`}
+              title="Settings"
+            >
+              <SettingsIcon size={16} className="hover:rotate-90 transition-transform duration-500" />
+            </button>
+
+            {/* Mobile Hamburger Menu Toggle */}
+            <button 
+              onClick={() => setIsMenuOpen(true)}
+              className={`p-2 rounded-xl md:hidden transition-all ${
+                isDarkMode ? 'text-white hover:bg-white/10' : 'text-slate-900 hover:bg-black/5'
+              }`}
+              title="Open Menu"
+            >
+              <MenuIcon size={24} />
+            </button>
+          </div>
+
         </div>
-      </nav>
+      </header>
 
       {/* Preloaded Background Audio Element */}
       <audio 
@@ -1119,7 +1202,7 @@ const App: React.FC = () => {
                 <div key={item} className="relative group overflow-hidden">
                   <button 
                     onClick={() => scrollToSection(id)}
-                    className={`text-3xl md:text-5xl font-serif-elegant transition-all duration-500 transform ${isMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}
+                    className={`menu-text-animated text-3xl md:text-5xl font-serif-elegant transition-all duration-500 transform ${isMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}
                     style={{ 
                         transitionDelay: `${index * 100}ms`,
                         color: activeSection === id 
@@ -1166,8 +1249,11 @@ const App: React.FC = () => {
           </div>
 
           <div className="flex-1 space-y-3 md:space-y-5 text-center md:text-left">
-            {/* Pill badge with "HEY, I AM" - bold, theme background, and white text */}
-            <div className="inline-block px-4 py-1.5 rounded-full primary-bg border primary-border shadow-lg">
+            {/* Pill badge with "HEY, I AM" - with bold-hover animation like the primary button */}
+            <div 
+              className="inline-block px-4 py-1.5 rounded-full primary-bg border primary-border shadow-lg transition-all active:scale-95 bold-hover cursor-pointer"
+              style={{ boxShadow: `0 8px 24px -6px ${activeColor}70` }}
+            >
               <span className="text-[10px] font-black text-white uppercase tracking-[0.2em] font-playfair">{t.hero.greeting}</span>
             </div>
             
@@ -1181,9 +1267,12 @@ const App: React.FC = () => {
                 if (isMotto) {
                   return (
                     <div key={idx} className="pt-1 flex items-center justify-center md:justify-start">
-                      <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full primary-bg/10 primary-text font-semibold text-xs md:text-sm tracking-wide border primary-border/30 shadow-sm">
+                      <span 
+                        className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full primary-bg/10 primary-text font-semibold text-xs md:text-sm tracking-wide border primary-border/30 shadow-sm transition-all active:scale-95 bold-hover cursor-pointer"
+                        style={{ boxShadow: `0 4px 18px -4px ${activeColor}40` }}
+                      >
                         <span className="w-1.5 h-1.5 rounded-full primary-bg animate-pulse"></span>
-                        {paragraph}
+                        <span>{paragraph}</span>
                       </span>
                     </div>
                   );
@@ -1197,12 +1286,25 @@ const App: React.FC = () => {
             </div>
 
             <div className="flex flex-wrap gap-3 justify-center md:justify-start pt-1">
+              {/* Say Hello button with avatar thumbnail (from red mark to green mark) */}
               <button 
                 onClick={() => scrollToSection('contact')}
-                className="primary-bg text-white px-6 py-2.5 md:px-8 md:py-3 rounded-full font-black shadow-xl transition-all active:scale-95 bold-hover text-xs md:text-sm"
+                className="primary-bg text-white px-5 py-2.5 md:px-7 md:py-3 rounded-full font-black shadow-xl transition-all active:scale-95 bold-hover text-xs md:text-sm inline-flex items-center gap-2.5 group"
                 style={{ boxShadow: `0 10px 30px -8px ${activeColor}80` }}
               >
-                {t.hero.sayHello}
+                {siteData?.constants?.IMAGES?.profile ? (
+                  <img 
+                    src={siteData.constants.IMAGES.profile} 
+                    alt="Robiul" 
+                    referrerPolicy="no-referrer"
+                    className="w-5 h-5 md:w-6 md:h-6 rounded-full object-cover border border-white/50 group-hover:scale-105 transition-transform shrink-0" 
+                  />
+                ) : (
+                  <div className="w-5 h-5 md:w-6 md:h-6 rounded-full bg-white/20 flex items-center justify-center text-[10px] shrink-0">
+                    RI
+                  </div>
+                )}
+                <span>{t.hero.sayHello}</span>
               </button>
               <button 
                 onClick={() => scrollToSection('about')}
