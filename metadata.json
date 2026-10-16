@@ -1,0 +1,7 @@
+{
+  "name": "Robiul Islam Portfolio",
+  "description": "A modern, MacOS-inspired personal portfolio for Robiul Islam featuring a gallery, custom theme controls, and a developer-centric terminal UI.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}

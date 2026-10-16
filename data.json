@@ -1,0 +1,291 @@
+{
+  "translations": {
+    "en": {
+      "nav": {
+        "home": "Home",
+        "about": "About",
+        "gallery": "Gallery",
+        "contact": "Contact"
+      },
+      "hero": {
+        "greeting": "HEY, I AM",
+        "name": "Robiul",
+        "surname": "Islam",
+        "description": "a university student with a passion for digital marketing, artificial intelligence, and continuous learning. I have experience working on Google Ads projects and enjoy exploring new technologies. Beyond technology and personal growth, I believe in kindness, helping others, and making a positive difference in people's lives. My goal is to grow my knowledge and skills while using them to create meaningful value for society.\n\nLearn • Grow • Help Others",
+        "sayHello": "Say Hello",
+        "aboutMe": "About Me"
+      },
+      "quotes": [
+        {
+          "text": "Knowledge is the life of the mind.",
+          "author": "Hazrat Ali (RA)"
+        },
+        {
+          "text": "Simplicity is the ultimate sophistication.",
+          "author": "Leonardo da Vinci"
+        },
+        {
+          "text": "You’ve got to start with the customer experience and work back toward the technology.",
+          "author": "STEVE JOBS"
+        }
+      ],
+      "about": {
+        "title": "Who Am I?",
+        "terminalHeader": "robiul.js",
+        "note": "Background process.",
+        "interests": "interests",
+        "rank": "Leader of Noobs",
+        "status": "404: Potential Not Found",
+        "interestList": [
+          "Learning",
+          "Gaming",
+          "Photography"
+        ]
+      },
+      "gallery": {
+        "title": "SOME WORK VIEW",
+        "projectView": "Project View"
+      },
+      "connect": {
+        "title": "Connect With Me",
+        "subtitle": "Find me on these platforms",
+        "socialSubtitles": {
+          "facebook": "Social updates",
+          "instagram": "Daily moments",
+          "x": "Quick thoughts",
+          "linkedin": "Professional network",
+          "github": "Open source contributions"
+        }
+      },
+      "contact": {
+        "title": "Get In Touch",
+        "description": "Have a project in mind or just want to chat?",
+        "button": "WhatsApp Me",
+        "form": {
+          "name": "Name",
+          "email": "Email",
+          "message": "Message",
+          "submit": "Submit",
+          "sending": "Sending...",
+          "success": "Message Sent!"
+        }
+      },
+      "footer": {
+        "rights": "© {year} Robiul Islam.",
+        "madeWith": "Made with"
+      },
+      "menu": {
+        "mode": "Mode",
+        "color": "Color",
+        "dark": "Dark",
+        "light": "Light",
+        "language": "Language",
+        "quran": "Quran Recitation",
+        "peace": "Peace"
+      },
+      "loader": [
+        "RobiulOS initializing ...",
+        "Checking system files ... [OK]",
+        "Loading user profile ... [OK]",
+        "Mounting animations ... [OK]",
+        "Connecting to Server Core .."
+      ]
+    },
+    "bn": {
+      "nav": {
+        "home": "হোম",
+        "about": "সম্পর্কে",
+        "gallery": "গ্যালারি",
+        "contact": "যোগাযোগ"
+      },
+      "hero": {
+        "greeting": "হে, আমি",
+        "name": "রবিউল",
+        "surname": "ইসলাম",
+        "description": "ডিজিটাল মার্কেটিং, কৃত্রিম বুদ্ধিমত্তা এবং ক্রমাগত নতুন কিছু শেখার প্রতি গভীর আগ্রহী একজন বিশ্ববিদ্যালয় শিক্ষার্থী। গুগল অ্যাডস প্রজেক্টে কাজ করার অভিজ্ঞতা রয়েছে এবং নতুন প্রযুক্তি নিয়ে অনুসন্ধান করতে আমি পছন্দ করি। প্রযুক্তি ও ব্যক্তিগত দক্ষতার বাইরে, আমি মানবিকতা, পরোপকার এবং মানুষের জীবনে ইতিবাচক ভূমিকা রাখায় বিশ্বাসী। আমার লক্ষ্য হলো নিজের জ্ঞান ও দক্ষতা বৃদ্ধির মাধ্যমে সমাজে অর্থপূর্ণ অবদান রাখা।\n\nশিখুন • এগিয়ে যান • অন্যের পাশে দাঁড়ান",
+        "sayHello": "হ্যালো বলুন",
+        "aboutMe": "আমার সম্পর্কে"
+      },
+      "quotes": [
+        {
+          "text": "জ্ঞানই মনের জীবন।",
+          "author": "হযরত আলী (রাঃ)"
+        },
+        {
+          "text": "সরলতাই হলো পরম পরিশীলন।",
+          "author": "লিওনার্দো দা ভিঞ্চি"
+        },
+        {
+          "text": "আপনাকে কাস্টমার এক্সপেরিয়েন্স থেকে শুরু করতে হবে এবং প্রযুক্তির দিকে ফিরে কাজ করতে হবে।",
+          "author": "স্টিভ জবস"
+        }
+      ],
+      "about": {
+        "title": "আমি কে?",
+        "terminalHeader": "robiul.js",
+        "note": "ব্যাকগ্রাউন্ড প্রসেস।",
+        "interests": "আগ্রহ",
+        "rank": "নুবদের নেতা",
+        "status": "৪০৪: সম্ভাবনা খুঁজে পাওয়া যায়নি",
+        "interestList": [
+          "শেখা",
+          "গেমিং",
+          "ফটোগ্রাফি"
+        ]
+      },
+      "gallery": {
+        "title": "কিছু কাজের দৃশ্য",
+        "projectView": "প্রজেক্ট ভিউ"
+      },
+      "connect": {
+        "title": "আমার সাথে যুক্ত হোন",
+        "subtitle": "এই প্ল্যাটফর্মগুলিতে আমাকে খুঁজুন",
+        "socialSubtitles": {
+          "facebook": "সামাজিক আপডেট",
+          "instagram": "দৈনন্দিন মুহূর্ত",
+          "x": "দ্রুত চিন্তা",
+          "linkedin": "পেশাদার নেটওয়ার্ক",
+          "github": "ওপেন সোর্স অবদান"
+        }
+      },
+      "contact": {
+        "title": "যোগাযোগ করুন",
+        "description": "আপনার মনে কি কোনো প্রজেক্ট আছে নাকি শুধু আড্ডা দিতে চান?",
+        "button": "হোয়াটসঅ্যাপ করুন",
+        "form": {
+          "name": "নাম",
+          "email": "ইমেল",
+          "message": "বার্তা",
+          "submit": "জমা দিন",
+          "sending": "পাঠানো হচ্ছে...",
+          "success": "বার্তা পাঠানো হয়েছে!"
+        }
+      },
+      "footer": {
+        "rights": "© {year} রবিউল ইসলাম।",
+        "madeWith": "তৈরি করা হয়েছে"
+      },
+      "menu": {
+        "mode": "মোড",
+        "color": "রঙ",
+        "dark": "ডার্ক",
+        "light": "লাইট",
+        "language": "ভাষা",
+        "quran": "কুরআন তিলাওয়াত",
+        "peace": "শান্তি"
+      },
+      "loader": [
+        "রবিউল ওএস চালু হচ্ছে ...",
+        "সিস্টেম ফাইল চেক করা হচ্ছে ... [OK]",
+        "ইউজার প্রোফাইল লোড হচ্ছে ... [OK]",
+        "অ্যানিমেশন মাউন্ট করা হচ্ছে ... [OK]",
+        "সার্ভার কোরের সাথে সংযোগ করা হচ্ছে .."
+      ]
+    }
+  },
+  "constants": {
+    "IMAGES": {
+      "profile": "https://lh3.googleusercontent.com/d/1POEHHioV_B2a11h-R_bJtXP_m6N9MMzh",
+      "gallery": [
+        "https://lh3.googleusercontent.com/d/1Ow62W3ZEeobmWXxasDEjxwFuAiiiBN4G",
+        "https://lh3.googleusercontent.com/d/1ALv0mNyqCuL5ZsySKXKCoyoMZRMFPK_d",
+        "https://lh3.googleusercontent.com/d/1VXfqWsVvPf8dyoaRW8P2zkn6uKPiVaz1",
+        "https://lh3.googleusercontent.com/d/1o2-n66eCgueLsZ0J6vGGiDMrHOKTKc_i"
+      ],
+      "audio": "/audio.mp3"
+    },
+    "THEME_COLORS": [
+      {
+        "name": "Blue",
+        "color": "#3b82f6"
+      },
+      {
+        "name": "Emerald",
+        "color": "#10b981"
+      },
+      {
+        "name": "Purple",
+        "color": "#8b5cf6"
+      },
+      {
+        "name": "Rose",
+        "color": "#f43f5e"
+      },
+      {
+        "name": "Amber",
+        "color": "#f59e0b"
+      },
+      {
+        "name": "Indigo",
+        "color": "#6366f1"
+      }
+    ],
+    "ROBIUL_DATA": {
+      "name": "Md. Robiul Islam",
+      "title": "Aspiring Digital Marketer & AI Enthusiast",
+      "education": "B.A. Degree Pass Course, National University of Bangladesh",
+      "skills": [
+        "Google Ads",
+        "Digital Marketing"
+      ],
+      "learning": [
+        "Artificial Intelligence",
+        "Emerging Technologies"
+      ],
+      "values": [
+        "Humanity",
+        "Kindness",
+        "Helping Others"
+      ],
+      "mindset": "Learn, Grow, and Make a Positive Difference",
+      "mission": "To develop my skills in digital marketing and AI while using my knowledge to help people and make a positive impact on society."
+    },
+    "SOCIAL_CONNECTS": [
+      {
+        "number": 1,
+        "platform": "Facebook",
+        "value": "Robiul Islam",
+        "link": "https://www.facebook.com/robiul.scale",
+        "subtitle": "Social updates"
+      },
+      {
+        "number": 2,
+        "platform": "Instagram",
+        "value": "@robiul.scale",
+        "link": "https://www.instagram.com/robiul.scale",
+        "subtitle": "Daily moments"
+      },
+      {
+        "number": 3,
+        "platform": "X",
+        "value": "@robiulscale",
+        "link": "https://x.com/robiulscale",
+        "subtitle": "Quick thoughts"
+      },
+      {
+        "number": 4,
+        "platform": "LinkedIn",
+        "value": "Robiul Islam",
+        "link": "https://www.linkedin.com/in/md-robiul-islam-1b1001391/",
+        "subtitle": "Professional network"
+      }
+    ],
+    "CONTACTS": [
+      {
+        "platform": "Email",
+        "value": "robiul.islam@example.com",
+        "link": "mailto:robiul.islam@example.com"
+      },
+      {
+        "platform": "Facebook",
+        "value": "Robiul Islam",
+        "link": "https://www.facebook.com/robiul.scale"
+      },
+      {
+        "platform": "LinkedIn",
+        "value": "Robiul Islam",
+        "link": "https://www.linkedin.com/in/md-robiul-islam-1b1001391/"
+      }
+    ]
+  }
+}
