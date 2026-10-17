@@ -1060,7 +1060,7 @@ const App: React.FC = () => {
         </div>
       
       {/* Top Floating iPhone Glass Rounded Menu Bar */}
-      <header className="fixed top-3 sm:top-4 md:top-5 left-0 right-0 z-50 px-4 sm:px-6 md:px-8 flex justify-center pointer-events-none transition-all duration-500">
+      <header className="fixed top-1.5 sm:top-2 md:top-2.5 left-0 right-0 z-50 px-4 sm:px-6 md:px-8 flex justify-center pointer-events-none transition-all duration-500">
         <div className={`w-full max-w-5xl h-14 md:h-16 px-5 sm:px-7 md:px-8 rounded-2xl md:rounded-full ios-glass-nav border flex items-center justify-between pointer-events-auto transition-all duration-500 ${
           isDarkMode 
             ? 'bg-[#0a0c10]/60 border-white/[0.12] shadow-[0_16px_40px_-10px_rgba(0,0,0,0.7),0_0_0_1px_rgba(255,255,255,0.05)]' 
