@@ -804,9 +804,11 @@ const App: React.FC = () => {
 
   // Determine fast, reliable audio source
   const rawAudio = siteData?.constants?.IMAGES?.audio;
-  const audioSrc = (!rawAudio || rawAudio.includes("docs.google.com") || rawAudio.includes("drive.google.com"))
+  const audioSrc = (!rawAudio || rawAudio === "/audio.mp3")
     ? "/audio.mp3"
-    : rawAudio;
+    : (rawAudio.includes("docs.google.com") || rawAudio.includes("drive.google.com"))
+      ? `/api/audio?url=${encodeURIComponent(rawAudio)}`
+      : rawAudio;
 
   const QUOTES = t.quotes;
 
@@ -1173,6 +1175,7 @@ const App: React.FC = () => {
         src={audioSrc}
         preload="auto"
         loop
+        playsInline
         onPlay={() => setIsPlaying(true)}
         onPause={() => setIsPlaying(false)}
         onError={(e) => {
